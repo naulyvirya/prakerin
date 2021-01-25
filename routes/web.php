@@ -34,4 +34,5 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth']], function() {
 
         Route::resource('provinsi', ProvinsiController::class);
         Route::resource('kota', KotaController::class);
+        Route::resource('kecamatan', KecamatanController::class);
  } );

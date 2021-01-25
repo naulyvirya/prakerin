@@ -31,31 +31,31 @@
             </a>
           </li>
           <li>
-            <a href="./kota">
+            <a href="../admin/kota">
               <i class="now-ui-icons location_map-big"></i>
               <p>Kota</p>
             </a>
           </li>
           <li>
-            <a href="./kecamatan">
+            <a href="../admin/kecamatan">
               <i class="now-ui-icons location_map-big"></i>
               <p>Kecamatan</p>
             </a>
           </li>
           <li>
-            <a href="./desa">
+            <a href="../admin/desa">
               <i class="now-ui-icons location_map-big"></i>
               <p>Desa</p>
             </a>
           </li>
           <li>
-            <a href="./rw">
+            <a href="../admin/rw">
               <i class="now-ui-icons location_map-big"></i>
               <p>Rw</p>
             </a>
           </li>
           <li>
-            <a href="./kasus">
+            <a href="../admin/kasus">
               <i class="now-ui-icons location_map-big"></i>
               <p>Kasus</p>
             </a>
