@@ -43,8 +43,7 @@ class KecamatanController extends Controller
         $kecamatan->nama_kecamatan = $request->nama_kecamatan;
         $kecamatan->save();
         return redirect()->route('kecamatan.index')
-            ->with(['success'=>'Data <b>', $kecamatan->nama_kecamatan, 
-            '</b> Berhasil di input']);
+            ->with(['success'=>'Data Berhasil di Input!']);
     }
 
     /**
@@ -86,8 +85,7 @@ class KecamatanController extends Controller
         $kecamatan->nama_kecamatan = $request->nama_kecamatan;
         $kecamatan->save();
         return redirect()->route('kecamatan.index')
-            ->with(['success'=>'Data <b>', $kecamatan->nama_kecamatan, 
-            '</b> Berhasil di edit']);
+            ->with(['success'=>'Data Berhasil di Edit!']);
     }
 
     /**
@@ -101,7 +99,6 @@ class KecamatanController extends Controller
         $kecamatan = Kecamatan::findOrFail($id);
         $kecamatan->delete();
         return redirect()->route('kecamatan.index')
-            ->with(['success'=>'Data <b>', $kecamatan->nama_kecamatan, 
-            '</b> Berhasil di hapus']);
+            ->with(['success'=>'Data Berhasil di Hapus!']);
     }
 }

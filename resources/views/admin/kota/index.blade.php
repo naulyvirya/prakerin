@@ -4,6 +4,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
+                    @include('flash-message')
                 <div class="card-header">
                     <b>Data Kota</b> 
                     <a href="{{route('kota.create')}}" class="btn btn-primary float-right">Tambah</a>

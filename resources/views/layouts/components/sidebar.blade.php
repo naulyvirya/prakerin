@@ -61,7 +61,7 @@
             </a>
           </li>
           <li>
-            <a href="./">
+            <a href="../">
               <i class="now-ui-icons shopping_shop"></i>
               <p>Home</p>
             </a>

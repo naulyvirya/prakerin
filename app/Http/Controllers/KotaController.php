@@ -44,8 +44,7 @@ class KotaController extends Controller
         $kota->nama_kota = $request->nama_kota;
         $kota->save();
         return redirect()->route('kota.index')
-            ->with(['success'=>'Data <b>', $kota->nama_kota, 
-            '</b> Berhasil di input']);
+            ->with(['success'=>'Data Berhasil di Input!']);
     }
 
     /**
@@ -88,8 +87,7 @@ class KotaController extends Controller
         $kota->nama_kota = $request->nama_kota;
         $kota->save();
         return redirect()->route('kota.index')
-            ->with(['success'=>'Data <b>', $kota->nama_kota, 
-            '</b> Berhasil di edit']);
+            ->with(['success'=>'Data Berhasil di Input!']);
     }
 
     /**
@@ -103,7 +101,6 @@ class KotaController extends Controller
         $kota = Kota::findOrFail($id);
         $kota->delete();
         return redirect()->route('kota.index')
-            ->with(['success'=>'Data <b>', $kota->nama_kota, 
-            '</b> Berhasil di hapus']);
+            ->with(['success'=>'Data Berhasil di Input!']);
     }
 }

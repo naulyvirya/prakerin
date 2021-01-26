@@ -4,6 +4,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
+                    @include('flash-message')
                 <div class="card-header">
                     <b>Data Kecamatan</b> 
                     <a href="{{route('kecamatan.create')}}" class="btn btn-primary float-right">Tambah</a>

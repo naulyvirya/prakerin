@@ -2,23 +2,23 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        Show Data Provinsi
+                        Show Data RW
                     </div>
                     <div class="card-body">
                             @csrf
                             <div class="form-group">
-                                <label for="">Kode Provinsi</label>
-                                <input type="text" name="kode_provinsi" value="{{$provinsi->kode_provinsi}}" class="form-control" readonly>
+                                <label for="">Desa</label>
+                                <input type="text" name="id_desa" value="{{$rw->desa->nama_desa}}" class="form-control" readonly>
                             </div>
                             <div class="form-group">
-                                <label for="">Nama Provinsi</label>
-                                <input type="text" name="nama_provinsi" value="{{$provinsi->nama_provinsi}}" class="form-control" readonly>
+                                <label for="">RW</label>
+                                <input type="text" name="nama_rw" value="{{$rw->nama_rw}}" class="form-control" readonly>
                             </div>
                             <div class="form-group">
-                                <a href=" {{ route('provinsi.index') }} " class="btn btn-danger">Back</a>
+                                <a href=" {{ route('rw.index') }} " class="btn btn-danger">Back</a>
                             </div>
                     </div>
                 </div>

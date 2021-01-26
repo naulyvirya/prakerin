@@ -41,8 +41,7 @@ class ProvinsiController extends Controller
         $provinsi->nama_provinsi = $request->nama_provinsi;
         $provinsi->save();
         return redirect()->route('provinsi.index')
-            ->with(['success'=>'Data <b>', $provinsi->nama_provinsi, 
-            '</b> Berhasil di input']);
+            ->with(['success'=>'Data Berhasil di Input!']);
     }
 
     /**
@@ -83,8 +82,7 @@ class ProvinsiController extends Controller
         $provinsi->nama_provinsi = $request->nama_provinsi;
         $provinsi->save();
         return redirect()->route('provinsi.index')
-            ->with(['success'=>'Data <b>', $provinsi->nama_provinsi, 
-            '</b> Berhasil di edit']);
+            ->with(['success'=>'Data Berhasil di Edit!']);
     }
 
     /**
@@ -98,7 +96,6 @@ class ProvinsiController extends Controller
         $provinsi = Provinsi::findOrFail($id);
         $provinsi->delete();
         return redirect()->route('provinsi.index')
-            ->with(['success'=>'Data <b>', $provinsi->nama_provinsi, 
-            '</b> Berhasil di hapus']);
+            ->with(['success'=>'Data Berhasil di Hapus!']);
     }
 }

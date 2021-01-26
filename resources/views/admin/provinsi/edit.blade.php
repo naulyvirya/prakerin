@@ -5,7 +5,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        Tambah Data Provinsi
+                        Edit Data Provinsi
                     </div>
                     <div class="card-body">
                         <form action="{{route('provinsi.update', $provinsi->id)}}" method="post">
