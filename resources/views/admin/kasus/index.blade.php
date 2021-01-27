@@ -14,22 +14,22 @@
                         <table class="table">
                             <tr>
                                 <th>No</th>
-                                <th>Positif</th>
-                                <th>Meninggal</th>
-                                <th>Sembuh</th>
-                                <th>Tanggal</th>
                                 <th>RW</th>
+                                <th>Jumlah Positif</th>
+                                <th>Jumlah Meninggal</th>
+                                <th>Jumlah Sembuh</th>
+                                <th>Tanggal</th>
                                 <th>Aksi</th>
                             </tr>
                             @php $no=1; @endphp
                             @foreach($kasus as $data)
                             <tr>
                                 <td>{{$no++}}</td>
+                                <td>Rw {{$data->rw->nama_rw}}</td>
                                 <td>{{$data->positif}} Orang</td>
                                 <td>{{$data->meninggal}} Orang</td>
                                 <td>{{$data->sembuh}} Orang</td>
                                 <td>{{$data->tanggal}}</td>
-                                <td>Rw {{$data->rw->nama_rw}}</td>
                                 <td>
                                     <form action="{{route('kasus.destroy', $data->id)}}" method="post">
                                         @csrf

@@ -19,16 +19,16 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="">Kasus Positif</label>
-                                <input type="text" name="positif" class="form-control" required>
+                                <label for="">Jumlah Positif</label>
+                                <input type="number" name="positif" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label for="">Kasus Meninggal</label>
-                                <input type="text" name="meninggal" class="form-control" required>
+                                <label for="">Jumlah Meninggal</label>
+                                <input type="number" name="meninggal" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label for="">Kasus Sembuh</label>
-                                <input type="text" name="sembuh" class="form-control" required>
+                                <label for="">Jumlah Sembuh</label>
+                                <input type="number" name="sembuh" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Tanggal</label>
