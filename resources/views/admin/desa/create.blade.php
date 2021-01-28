@@ -11,6 +11,9 @@
                         <form action="{{route('desa.store')}}" method="post">
                             @csrf
                             <div class="form-group">
+                            @error('title')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                                 <label for="">Pilih Kecamatan</label>
                                 <select name="id_kecamatan" class="form-control">
                                     @foreach($kecamatan as $data)
@@ -21,6 +24,9 @@
                             <div class="form-group">
                                 <label for="">Nama Desa</label>
                                 <input type="text" name="nama_desa" class="form-control" required>
+                                @if ($errors->has('nama_desa'))
+                                    <span class="text-danger"> {{ $errors->first('nama_desa') }} </span>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn block">Simpan</button>

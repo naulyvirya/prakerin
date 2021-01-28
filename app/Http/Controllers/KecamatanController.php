@@ -38,6 +38,10 @@ class KecamatanController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nama_kecamatan' => 'required|unique:kecamatans'
+        ]);
+
         $kecamatan = new Kecamatan();
         $kecamatan->id_kota = $request->id_kota;
         $kecamatan->nama_kecamatan = $request->nama_kecamatan;
@@ -80,12 +84,16 @@ class KecamatanController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nama_kecamatan' => 'required'
+        ]);
+
         $kecamatan = Kecamatan::findOrFail($id);
         $kecamatan->id_kota = $request->id_kota;
         $kecamatan->nama_kecamatan = $request->nama_kecamatan;
         $kecamatan->save();
         return redirect()->route('kecamatan.index')
-            ->with(['success'=>'Data Berhasil di Edit!']);
+            ->with(['info'=>'Data Berhasil di Edit!']);
     }
 
     /**
@@ -99,6 +107,6 @@ class KecamatanController extends Controller
         $kecamatan = Kecamatan::findOrFail($id);
         $kecamatan->delete();
         return redirect()->route('kecamatan.index')
-            ->with(['success'=>'Data Berhasil di Hapus!']);
+            ->with(['error'=>'Data Berhasil di Hapus!']);
     }
 }

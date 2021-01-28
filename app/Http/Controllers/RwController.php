@@ -38,6 +38,10 @@ class RwController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nama_rw' => 'required|unique:rws'
+        ]);
+
         $rw = new Rw();
         $rw->id_desa = $request->id_desa;
         $rw->nama_rw = $request->nama_rw;
@@ -80,12 +84,17 @@ class RwController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
+        $request->validate([
+            'nama_desa' => 'required'
+        ]);
+
         $rw = Rw::findOrFail($id);
         $rw->id_desa = $request->id_desa;
         $rw->nama_rw = $request->nama_rw;
         $rw->save();
         return redirect()->route('rw.index')
-            ->with(['success'=>'Data Berhasil di Edit!']);
+            ->with(['info'=>'Data Berhasil di Edit!']);
     }
 
     /**
@@ -99,6 +108,6 @@ class RwController extends Controller
         $rw = Rw::findOrFail($id);
         $rw->delete();
         return redirect()->route('rw.index')
-            ->with(['success'=>'Data Berhasil di Hapus!']);
+            ->with(['error'=>'Data Berhasil di Hapus!']);
     }
 }

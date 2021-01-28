@@ -38,6 +38,11 @@ class KotaController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'kode_kota' => 'required|unique:kotas',
+            'nama_kota' => 'required|unique:kotas'
+        ]);
+
         $kota = new Kota();
         $kota->id_provinsi = $request->id_provinsi;
         $kota->kode_kota = $request->kode_kota;
@@ -81,13 +86,19 @@ class KotaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'id_provinsi' => 'required',
+            'kode_kota' => 'required',
+            'nama_kota' => 'required',
+        ]);
+
         $kota = Kota::findOrFail($id);
         $kota->id_provinsi = $request->id_provinsi;
         $kota->kode_kota = $request->kode_kota;
         $kota->nama_kota = $request->nama_kota;
         $kota->save();
         return redirect()->route('kota.index')
-            ->with(['success'=>'Data Berhasil di Input!']);
+            ->with(['info'=>'Data Berhasil di Edit!']);
     }
 
     /**
@@ -101,6 +112,6 @@ class KotaController extends Controller
         $kota = Kota::findOrFail($id);
         $kota->delete();
         return redirect()->route('kota.index')
-            ->with(['success'=>'Data Berhasil di Input!']);
+            ->with(['error'=>'Data Berhasil di Hapus!']);
     }
 }

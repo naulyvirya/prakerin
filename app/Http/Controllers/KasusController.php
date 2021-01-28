@@ -91,7 +91,7 @@ class KasusController extends Controller
         $kasus->tanggal = $request->tanggal;
         $kasus->save();
         return redirect()->route('kasus.index')
-            ->with(['success'=>'Data Berhasil di edit']);
+            ->with(['info'=>'Data Berhasil di edit']);
     }
 
     /**
@@ -105,6 +105,6 @@ class KasusController extends Controller
         $kasus = Kasus::findOrFail($id);
         $kasus->delete();
         return redirect()->route('kasus.index')
-            ->with(['success'=>'Data Berhasil di Hapus!']);
+            ->with(['error'=>'Data Berhasil di Hapus!']);
     }
 }
