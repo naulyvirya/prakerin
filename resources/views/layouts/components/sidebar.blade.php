@@ -25,37 +25,37 @@
             </a>
           </li>
           <li>
-            <a href="../admin/provinsi">
+            <a href="{{ url('/admin/provinsi') }}">
               <i class="now-ui-icons location_map-big"></i>
               <p>Provinsi</p>
             </a>
           </li>
           <li>
-            <a href="../admin/kota">
+            <a href="{{ url('/admin/kota') }}">
               <i class="now-ui-icons location_map-big"></i>
               <p>Kota</p>
             </a>
           </li>
           <li>
-            <a href="../admin/kecamatan">
+            <a href="{{ url('/admin/kecamatan') }}">
               <i class="now-ui-icons location_map-big"></i>
               <p>Kecamatan</p>
             </a>
           </li>
           <li>
-            <a href="../admin/desa">
+            <a href="{{ url('/admin/desa') }}">
               <i class="now-ui-icons location_map-big"></i>
               <p>Desa</p>
             </a>
           </li>
           <li>
-            <a href="../admin/rw">
+            <a href="{{ url('/admin/rw') }}">
               <i class="now-ui-icons location_map-big"></i>
               <p>Rw</p>
             </a>
           </li>
           <li>
-            <a href="../admin/kasus">
+            <a href="{{ url('/admin/kasus') }}">
               <i class="now-ui-icons location_map-big"></i>
               <p>Kasus</p>
             </a>

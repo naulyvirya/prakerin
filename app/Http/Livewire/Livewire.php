@@ -26,16 +26,10 @@ class Livewire extends Component
     public function mount($selectedRw = null)
     {
         $this->provinsi = Provinsi::all();
-        $this->kota = Kota::with('provinsi')->get();
-        $this->kecamatan = Kecamatan::whereHas('kota', function ($query) {
-            $query->whereId(request()->input('id_kota', 0));
-        })->pluck('nama_kecamatan', 'id');
-        $this->desa = Desa::whereHas('kecamatan', function ($query) {
-            $query->whereId(request()->input('id_kecamatan', 0));
-        })->pluck('nama_desa', 'id');
-        $this->rw = Rw::whereHas('desa', function ($query) {
-            $query->whereId(request()->input('id_desa', 0));
-        })->pluck('nama_rw', 'id');
+        $this->kota = collect();
+        $this->kecamatan = collect();
+        $this->desa = collect();
+        $this->rw = collect();
         $this->selectedRw = $selectedRw;
 
         if (!is_null($selectedRw)) {
@@ -61,7 +55,6 @@ class Livewire extends Component
     public function updatedSelectedProvinsi($provinsi)
     {
         $this->kota = Kota::where('id_provinsi', $provinsi)->get();
-        $this->selectedKota = NULL;
         $this->selectedKecamatan = NULL;
         $this->selectedDesa = NULL;
         $this->selectedRw = NULL;
@@ -69,7 +62,6 @@ class Livewire extends Component
     public function updatedSelectedKota($kota)
     {
         $this->kecamatan = Kecamatan::where('id_kota', $kota)->get();
-        $this->selectedKecamatan = NULL;
         $this->selectedDesa = NULL;
         $this->selectedRw = NULL;
     }
@@ -77,14 +69,14 @@ class Livewire extends Component
     public function updatedSelectedKecamatan($kecamatan)
     {
         $this->desa = desa::where('id_kecamatan', $kecamatan)->get();
-        $this->selecteddesa = NULL;
         $this->selectedRw = NULL;
     }
-    public function updatedSelecteddesa($desa)
+    public function updatedSelectedDesa($desa)
     {
         if (!is_null($desa)) {
             $this->rw = RW::where('id_desa', $desa)->get();
-        }else{
+        }
+        else {
             $this->selectedRw = NULL;
         }
     }

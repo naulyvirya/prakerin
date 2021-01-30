@@ -3,44 +3,58 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <div class="card">
-                    @include('flash-message')
-                <div class="card-header">
-                    <b>Data Kasus</b> 
-                    <a href="{{route('kasus.create')}}" class="btn btn-primary float-right">Tambah</a>
+            <div class="card shadow mb-4">
+            @include('flash-message')
+                    <div class="card-header py-3">
+                    <h10 class="m-0 font-weight-bold text-primary">
+                        Data kasus
+                        <a href=" {{route('kasus.create')}} " class="btn btn-primary" style="float: right;">Tambah Data</a>
+                    </h10>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table">
-                            <tr>
-                                <th>No</th>
-                                <th>RW</th>
-                                <th>Jumlah Positif</th>
-                                <th>Jumlah Meninggal</th>
-                                <th>Jumlah Sembuh</th>
-                                <th>Tanggal</th>
-                                <th>Aksi</th>
-                            </tr>
-                            @php $no=1; @endphp
-                            @foreach($kasus as $data)
-                            <tr>
-                                <td>{{$no++}}</td>
-                                <td>Rw {{$data->rw->nama_rw}}</td>
-                                <td>{{$data->positif}} Orang</td>
-                                <td>{{$data->meninggal}} Orang</td>
-                                <td>{{$data->sembuh}} Orang</td>
-                                <td>{{$data->tanggal}}</td>
-                                <td>
-                                    <form action="{{route('kasus.destroy', $data->id)}}" method="post">
-                                        @csrf
-                                        @method('Delete')
-                                        <a class="btn btn-info" href=" {{ route('kasus.show', $data->id) }} ">Show</a>
-                                        <a class="btn btn-warning" href=" {{ route('kasus.edit', $data->id) }} ">Edit</a>
-                                        <button type="submit" class="btn btn-danger" >Delete</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
+                    <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                     <tr>
+                      <th scope="col">No</th>
+                                            <th >Lokasi</th>
+                                            <th >RW</th>
+                                            <th >Reaktif</th>
+                                            <th >Positif</th>
+                                            <th >Sembuh</th>
+                                            <th >Meninggal</th>
+                                            <th >Tanggal</th>
+                                            <th >Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    @php $no=1;
+                                    @endphp
+                                    @foreach($kasus as $data)
+
+                                        <tr>
+                                            <th scope="row">{{$no++}}</th>
+                                            <td>Desa : {{$data->rw->desa->nama_desa}}<br>
+                                            Kecamatan : {{$data->rw->desa->kecamatan->nama_kecamatan}}<br>
+                                            Kota : {{$data->rw->desa->kecamatan->kota->nama_kota}}<br>
+                                            Provinsi : {{$data->rw->desa->kecamatan->kota->provinsi->nama_provinsi}}</td>
+                                            <td>{{$data->rw->nama_rw}}</td>
+                                            <td>{{$data->reaktif}}</td>
+                                            <td>{{$data->positif}}</td>
+                                            <td>{{$data->sembuh}}</td>
+                                            <td>{{$data->meninggal}}</td>
+                                            <td>{{$data->tanggal}}</td>
+                                            <td>
+                                            <form action="{{route('kasus.destroy',$data->id)}}"  method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                              <a href="{{route('kasus.show',$data->id)}}" class="btn btn-info btn-sm">Show</a>
+                                    <a href="{{route('kasus.edit',$data->id)}}" class="btn btn-warning btn-sm">Edit</a>
+                                    <button type="submit"  class="btn btn-danger btn-sm" onclick="return confirm('Yakin Hapus?')">Delete
+                                            </form>
+                                        </tr>
+                                    @endforeach
+                            </tbody>  
                         </table>
                     </div>
                 </div>

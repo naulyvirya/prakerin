@@ -38,9 +38,6 @@ class RwController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nama_rw' => 'required|unique:rws'
-        ]);
 
         $rw = new Rw();
         $rw->id_desa = $request->id_desa;
@@ -84,10 +81,6 @@ class RwController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        $request->validate([
-            'nama_desa' => 'required'
-        ]);
 
         $rw = Rw::findOrFail($id);
         $rw->id_desa = $request->id_desa;

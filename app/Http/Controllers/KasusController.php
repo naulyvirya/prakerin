@@ -15,7 +15,7 @@ class KasusController extends Controller
      */
     public function index()
     {
-        $kasus = Kasus::with('rw')->get();
+        $kasus = Kasus::with('rw.desa.kecamatan.kota.provinsi')->get();
         return view('admin.kasus.index', compact('kasus'));
     }
 
@@ -40,6 +40,7 @@ class KasusController extends Controller
     {
         $kasus = new Kasus();
         $kasus->id_rw = $request->id_rw;
+        $kasus->reaktif = $request->reaktif;
         $kasus->positif = $request->positif;
         $kasus->meninggal = $request->meninggal;
         $kasus->sembuh = $request->sembuh;
@@ -85,6 +86,7 @@ class KasusController extends Controller
     {
         $kasus = Kasus::findOrFail($id);
         $kasus->id_rw = $request->id_rw;
+        $kasus->reaktif = $request->reaktif;
         $kasus->positif = $request->positif;
         $kasus->meninggal = $request->meninggal;
         $kasus->sembuh = $request->sembuh;
