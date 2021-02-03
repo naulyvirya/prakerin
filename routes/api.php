@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\Api\ApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,8 @@ use App\Http\Controllers\PostsController;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/provinsi', [ApiController::class, 'provinsi']);
 
 Route::get('/posts', [PostsController::class, 'index']);
 Route::post('/posts/store', [PostsController::class, 'store']);
