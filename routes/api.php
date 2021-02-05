@@ -20,8 +20,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/indonesia', [ApiController::class, 'indonesia']);
+Route::get('/positif', [ApiController::class, 'positif']);
+Route::get('/sembuh', [ApiController::class, 'sembuh']);
+Route::get('/meninggal', [ApiController::class, 'meninggal']);
+
 Route::get('/provinsi', [ApiController::class, 'provinsi']);
-Route::get('/provinsi/{id}', [ApiController::class, 'show']);
+Route::get('/provinsi/{id}', [ApiController::class, 'showProvinsi']);
 
 Route::get('/posts', [PostsController::class, 'index']);
 Route::post('/posts/store', [PostsController::class, 'store']);
