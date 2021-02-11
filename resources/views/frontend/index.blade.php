@@ -24,6 +24,20 @@
 </head>
 
 <body>
+    <?php 
+    $datapositif = file_get_contents("https://api.kawalcorona.com/positif");
+    $positif = json_decode($datapositif, true);
+    $datasembuh =file_get_contents("https://api.kawalcorona.com/sembuh");
+    $sembuh = json_decode($datasembuh, true);
+    $datameninggal = file_get_contents("https://api.kawalcorona.com/meninggal");
+    $meninggal = json_decode($datameninggal, true);
+    $dataid = file_get_contents("https://api.kawalcorona.com/indonesia");
+    $id = json_decode($dataid, true);
+    $dataidprovinsi = file_get_contents("https://api.kawalcorona.com/indonesia/provinsi");
+    $idprovinsi = json_decode($dataidprovinsi, true);
+    $datadunia = file_get_contents("https://api.kawalcorona.com/");
+    $dunia = json_decode($datadunia, true);
+  ?>
 
   <!-- <nav class="navbar navbar-expand-md navbar-light  bg-white shadow-sm">
     <div class="container-fluid">
@@ -44,11 +58,12 @@
     </div>
   </nav> -->
 
+    <!-- Header -->
   <nav class="navbar navbar-expand-md navbar-light bg-grey shadow-sm">
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
         <ul class="navbar-nav mr-auto navbar-brand">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Tracking Covid</a>
+                <a class="nav-link" href="#"><h4>Covid</h4></a>
             </li>
         </ul>
     </div>
@@ -71,7 +86,8 @@
     </div>
 </nav>
 
-  <!-- Header -->
+  <!-- End Header -->
+  <!-- Content -->
   <div class="container-fluid">
       <div class="jumbotron">
             <div class="container">
@@ -86,7 +102,7 @@
 							<div class="d-flex">
 								<div class="text-white">
 				    				<p class="text-white mb-0">TOTAL POSITIF</p>
-                                    <p class="text-white mb-0">-</p>
+                                    <p class="text-white mb-0"><?php echo $positif['value'] ?></p>
 						    		<p class="text-white mb-0">ORANG</p>
                                 </div>
                                 <div class="ml-auto">
@@ -103,7 +119,7 @@
 								<div class="d-flex">
 									<div class="text-white">
 									<p class="text-white mb-0">TOTAL SEMBUH</p>
-                                    <p class="text-white mb-0">-</p>
+                                    <p class="text-white mb-0"><?php echo $sembuh['value'] ?></p>
 									<p class="text-white mb-0">ORANG</p>
 								</div>
                                 <div class="ml-auto">
@@ -120,7 +136,7 @@
 								<div class="d-flex">
 									<div class="text-white">
 									<p class="text-white mb-0">TOTAL MENINGGAL</p>
-                                    <p class="text-white mb-0">-</p>
+                                    <p class="text-white mb-0"><?php echo $meninggal['value'] ?></p>
 									<p class="text-white mb-0">ORANG</p>
                                 </div>
                                 <div class="ml-auto">
@@ -137,7 +153,20 @@
 								<div class="d-flex">
 									<div class="text-white">
 									<p class="text-white mb-0">INDONESIA</p>
-                                    <p class="text-white mb-0">- Positif, - Sembuh, - Meninggal</p>
+                                    <p class="text-white mb-0">
+                                    <?php 
+                                        echo $id[0]['positif']
+                                    ?>
+                                        &nbsp; POSITIF, &nbsp;
+                                    <?php
+                                        echo $id[0]['sembuh'] 
+                                    ?>
+                                        &nbsp;SEMBUH, &nbsp;
+                                    <?php
+                                        echo $id[0]['meninggal']
+                                    ?>
+                                        &nbsp;MENINGGAL
+                                    </p>
 									<p class="text-white mb-0">ORANG</p>
                                 </div>
                                 
@@ -212,15 +241,22 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @php $no=1;
+                                    @php
+                                        $no = 1;    
                                     @endphp
+                                    <?php
+                                        for ($i = 0; $i <= 191; $i++){
+                                    ?>
                                         <tr>
-                                            <td>{{$no++}}</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
+                          <td> <?php echo $i+1 ?></td>
+                          <td> <?php echo $dunia[$i]['attributes']['Country_Region'] ?></td>
+                          <td> <?php echo $dunia[$i]['attributes']['Confirmed'] ?></td>
+                          <td><?php echo $dunia[$i]['attributes']['Recovered']?></td>
+                          <td><?php echo $dunia[$i]['attributes']['Deaths']?></td>
+                      </tr>
+                          <?php 
+                      
+                      } ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -230,6 +266,7 @@
             </div>
       </div>
   </div>
+  <!-- End Content -->
 
   <!-- Footer -->
   <footer class="footer text-center">
