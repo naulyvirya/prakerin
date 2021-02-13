@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use App\Models\Kasus;
 use App\Models\Kecamatan;
 use App\Models\Desa;
@@ -15,6 +16,15 @@ class FrontendController extends Controller
 {
     public function index()
     {
+        $positif = DB::table('rws')->select('kasuses.positif', 'kasuses.sembuh', 'kasuses.meninggal')
+                    ->join('kasuses', 'rws.id', '=', 'kasuses.id_rw')
+                    ->sum('kasuses.positif');
+        $sembuh = DB::table('rws')->select('kasuses.sembuh', 'kasuses.sembuh', 'kasuses.meninggal')
+                    ->join('kasuses', 'rws.id', '=', 'kasuses.id_rw')
+                    ->sum('kasuses.sembuh');
+        $meninggal = DB::table('rws')->select('kasuses.meninggal', 'kasuses.sembuh', 'kasuses.meninggal')
+                    ->join('kasuses', 'rws.id', '=', 'kasuses.id_rw')
+                    ->sum('kasuses.meninggal');
         $data = Kasus::all();
         $provinsi = DB::table('provinsis')
                     ->select('provinsis.nama_provinsi', 
@@ -28,20 +38,8 @@ class FrontendController extends Controller
                         ->join('kasuses', 'rws.id', '=', 'kasuses.id_rw')
                         ->groupBy('provinsis.id')
                         ->get();
-        return view('frontend.index', compact('provinsi', 'data'));
+        $dataglobal = file_get_contents("https://api.kawalcorona.com/");
+        $global = json_decode($dataglobal, true);
+        return view('frontend.index', compact('provinsi', 'data', 'positif', 'sembuh', 'meninggal', 'global'));
     }
-
-    // public function indonesia()
-    // {
-    //     $positif = DB::table('rws')->select('kasuses.positif', 'kasuses.sembuh', 'kasuses.meninggal')
-    //                 ->join('kasuses', 'rws.id', '=', 'kasuses.id_rw')
-    //                 ->sum('kasuses.positif');
-    //     $sembuh = DB::table('rws')->select('kasuses.sembuh', 'kasuses.sembuh', 'kasuses.meninggal')
-    //                 ->join('kasuses', 'rws.id', '=', 'kasuses.id_rw')
-    //                 ->sum('kasuses.sembuh');
-    //     $meninggal = DB::table('rws')->select('kasuses.meninggal', 'kasuses.sembuh', 'kasuses.meninggal')
-    //                 ->join('kasuses', 'rws.id', '=', 'kasuses.id_rw')
-    //                 ->sum('kasuses.meninggal');
-    //     return view('frontend.index', compact('positif', 'sembuh', 'meninggal'));
-    // }
 }

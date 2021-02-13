@@ -24,85 +24,43 @@
 </head>
 
 <body>
-    <?php 
-    $datapositif = file_get_contents("https://api.kawalcorona.com/positif");
-    $positif = json_decode($datapositif, true);
-    $datasembuh =file_get_contents("https://api.kawalcorona.com/sembuh");
-    $sembuh = json_decode($datasembuh, true);
-    $datameninggal = file_get_contents("https://api.kawalcorona.com/meninggal");
-    $meninggal = json_decode($datameninggal, true);
-    $dataid = file_get_contents("https://api.kawalcorona.com/indonesia");
-    $id = json_decode($dataid, true);
-    $dataidprovinsi = file_get_contents("https://api.kawalcorona.com/indonesia/provinsi");
-    $idprovinsi = json_decode($dataidprovinsi, true);
-    $datadunia = file_get_contents("https://api.kawalcorona.com/");
-    $dunia = json_decode($datadunia, true);
-  ?>
-
-  <!-- <nav class="navbar navbar-expand-md navbar-light  bg-white shadow-sm">
-    <div class="container-fluid">
-        <a class="navbar-brand" >Tracking Covid</a>
-        <ul class="topnav-right">
-            <a href=""></a>
-        </ul>
-        @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Admin</a>
-
-                    @endauth
-                </div>
-            @endif
-    </div>
-  </nav> -->
-
-    <!-- Header -->
-  <nav class="navbar navbar-expand-md navbar-light bg-grey shadow-sm">
-    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-        <ul class="navbar-nav mr-auto navbar-brand">
+<!-- Header -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark shadow-sm">
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="#"><h4>Covid</h4></a>
             </li>
         </ul>
-    </div>
-    <div class="navbar-collapse collapse w-100 order-3 order-md-0 dual-collapse2">
-        <ul class="navbar-nav mr-auto">
-        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">About</a>
+            </li>
+            <!-- {{ url('frontend/hotline') }} -->
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Hotline</a>
+            </li>
             
-        <a class="nav-link" href="#">Hotline</a>
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Admin</a>
-
-                    @endauth
-                </div>
-            @endif
-            <a class="nav-link" href="#">Contact</a>
-    </div>
-</nav>
-
+        </ul>  
+    </nav>
   <!-- End Header -->
   <!-- Content -->
+  <br>
+  <header class="masthead d-flex">
+    <div class="container text-center my-auto">
+      <h1 class="mb-1">KAWAL CORONA</h1>
+      <h3 class="mb-5">
+        <em>Coronavirus Global & Local Live Data</em>
+      </h3>
+  </header>
   <div class="container-fluid">
-      <div class="jumbotron">
-            <div class="container">
-                <h1 class="display-4 text-center">KAWAL CORONA</h1>
-                <p class="lead m-0 text-center">Coronavirus Global & Indonesia Live Data</p>
-                <br>
-            </div>
             <div class="row">
 				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
-					<div class="card bg-danger img-card box-primary-shadow">
+					<div class="card bg-danger img-card box-primary-shadow" style="margin-top: 20px">
 						<div class="card-body">
 							<div class="d-flex">
 								<div class="text-white">
 				    				<p class="text-white mb-0">TOTAL POSITIF</p>
-                                    <p class="text-white mb-0"><?php echo $positif['value'] ?></p>
+                                    <p class="text-white mb-0">{{ $positif }}</p>
 						    		<p class="text-white mb-0">ORANG</p>
                                 </div>
                                 <div class="ml-auto">
@@ -114,12 +72,12 @@
 					</div>
 				</div>
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
-						<div class="card bg-success img-card box-secondary-shadow">
+						<div class="card bg-success img-card box-secondary-shadow" style="margin-top: 20px">
 							<div class="card-body">
 								<div class="d-flex">
 									<div class="text-white">
 									<p class="text-white mb-0">TOTAL SEMBUH</p>
-                                    <p class="text-white mb-0"><?php echo $sembuh['value'] ?></p>
+                                    <p class="text-white mb-0">{{ $sembuh }}</p>
 									<p class="text-white mb-0">ORANG</p>
 								</div>
                                 <div class="ml-auto">
@@ -131,12 +89,12 @@
 					</div>
 				</div>
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
-						<div class="card bg-dark img-card box-success-shadow">
+						<div class="card bg-dark img-card box-success-shadow" style="margin-top: 20px">
 							<div class="card-body">
 								<div class="d-flex">
 									<div class="text-white">
 									<p class="text-white mb-0">TOTAL MENINGGAL</p>
-                                    <p class="text-white mb-0"><?php echo $meninggal['value'] ?></p>
+                                    <p class="text-white mb-0">{{ $meninggal }}</p>
 									<p class="text-white mb-0">ORANG</p>
                                 </div>
                                 <div class="ml-auto">
@@ -148,23 +106,17 @@
 					</div>
 				</div>
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
-						<div class="card bg-info img-card box-success-shadow">
+						<div class="card bg-primary img-card box-success-shadow" style="margin-top: 20px">
 							<div class="card-body">
 								<div class="d-flex">
 									<div class="text-white">
 									<p class="text-white mb-0">INDONESIA</p>
                                     <p class="text-white mb-0">
-                                    <?php 
-                                        echo $id[0]['positif']
-                                    ?>
+                                    {{number_format($positif)}}
                                         &nbsp; POSITIF, &nbsp;
-                                    <?php
-                                        echo $id[0]['sembuh'] 
-                                    ?>
+                                    {{number_format($sembuh)}}
                                         &nbsp;SEMBUH, &nbsp;
-                                    <?php
-                                        echo $id[0]['meninggal']
-                                    ?>
+                                    {{number_format($meninggal)}}
                                         &nbsp;MENINGGAL
                                     </p>
 									<p class="text-white mb-0">ORANG</p>
@@ -207,9 +159,9 @@
                                         <tr>
                                             <td>{{$no++}}</td>
                                             <td>{{$data->nama_provinsi}}</td>
-                                            <td>{{$data->positif}}</td>
-                                            <td>{{$data->sembuh}}</td>
-                                            <td>{{$data->meninggal}}</td>
+                                            <td>{{number_format($data->positif)}}</td>
+                                            <td>{{number_format($data->sembuh)}}</td>
+                                            <td>{{number_format($data->meninggal)}}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -244,19 +196,27 @@
                                     @php
                                         $no = 1;    
                                     @endphp
-                                    <?php
-                                        for ($i = 0; $i <= 191; $i++){
-                                    ?>
+                                    @foreach($global as $data)
                                         <tr>
-                          <td> <?php echo $i+1 ?></td>
-                          <td> <?php echo $dunia[$i]['attributes']['Country_Region'] ?></td>
-                          <td> <?php echo $dunia[$i]['attributes']['Confirmed'] ?></td>
-                          <td><?php echo $dunia[$i]['attributes']['Recovered']?></td>
-                          <td><?php echo $dunia[$i]['attributes']['Deaths']?></td>
-                      </tr>
-                          <?php 
-                      
-                      } ?>
+                                            <td> <?php echo $no++ ?></td>
+                                            <td> <?php echo $data['attributes']['Country_Region'] ?></td>
+                                            <td> 
+                                                <?php 
+                                                echo number_format($data['attributes']['Confirmed']) 
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <?php 
+                                                echo number_format($data['attributes']['Recovered'])
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <?php 
+                                                echo number_format($data['attributes']['Deaths'])
+                                                ?>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -264,7 +224,6 @@
                     </div>
                 </div>
             </div>
-      </div>
   </div>
   <!-- End Content -->
 
