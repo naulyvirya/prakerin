@@ -28,9 +28,9 @@
                                     <form action="{{route('provinsi.destroy', $data->id)}}" method="post">
                                         @csrf
                                         @method('Delete')
-                                        <a class="btn btn-info" href=" {{ route('provinsi.show', $data->id) }} ">Show</a>
-                                        <a class="btn btn-warning" href=" {{ route('provinsi.edit', $data->id) }} ">Edit</a>
-                                        <button type="submit" class="btn btn-danger" >Delete</button>
+                                        <a class="far fa-eye btn btn-info" href=" {{ route('provinsi.show', $data->id) }} "></a>
+                                        <a class="far fa-edit btn btn-warning" href=" {{ route('provinsi.edit', $data->id) }} "></a>
+                                        <button type="submit" class="far fa-trash-alt btn btn-danger" onclick="return confirm('Anda Yakin Ingin Hapus?')"></button>
                                     </form>
                                 </td>
                             </tr>

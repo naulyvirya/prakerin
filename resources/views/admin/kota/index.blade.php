@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
@@ -30,9 +30,9 @@
                                     <form action="{{route('kota.destroy', $data->id)}}" method="post">
                                         @csrf
                                         @method('Delete')
-                                        <a class="btn btn-info" href=" {{ route('kota.show', $data->id) }} ">Show</a>
-                                        <a class="btn btn-warning" href=" {{ route('kota.edit', $data->id) }} ">Edit</a>
-                                        <button type="submit" class="btn btn-danger" >Delete</button>
+                                        <a class="far fa-eye btn btn-info" href=" {{ route('kota.show', $data->id) }} "></a>
+                                        <a class="far fa-edit btn btn-warning" href=" {{ route('kota.edit', $data->id) }} "></a>
+                                        <button type="submit" class="far fa-trash-alt btn btn-danger" onclick="return confirm('Anda Yakin Ingin Hapus?')"></button>
                                     </form>
                                 </td>
                             </tr>

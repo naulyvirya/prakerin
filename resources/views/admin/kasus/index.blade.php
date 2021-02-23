@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card shadow mb-4">
@@ -48,10 +48,10 @@
                                             <form action="{{route('kasus.destroy',$data->id)}}"  method="POST">
                                             @csrf
                                             @method('DELETE')
-                                              <a href="{{route('kasus.show',$data->id)}}" class="btn btn-info btn-sm">Show</a>
-                                    <a href="{{route('kasus.edit',$data->id)}}" class="btn btn-warning btn-sm">Edit</a>
-                                    <button type="submit"  class="btn btn-danger btn-sm" onclick="return confirm('Yakin Hapus?')">Delete
-                                            </form>
+                                              <a href="{{route('kasus.show',$data->id)}}" class="far fa-eye btn btn-info btn-sm"></a>
+                                    <a href="{{route('kasus.edit',$data->id)}}" class="far fa-edit btn btn-warning btn-sm"></a>
+                                    <button type="submit"  class="far fa-trash-alt btn btn-danger btn-sm" onclick="return confirm('Yakin Hapus?')">
+                                            </form
                                         </tr>
                                     @endforeach
                             </tbody>  
