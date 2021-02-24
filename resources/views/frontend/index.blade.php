@@ -60,21 +60,26 @@
                         <div class="col-lg-10 mx-auto">
                             <h2 class="text-left">Apa itu Virus Corona??</h2><br>
                             <p style="text-align:justify;" class="lead mb-3">
-                                Virus Corona atau severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) adalah virus yang menyerang sistem pernapasan. Penyakit karena infeksi virus ini disebut COVID-19. 
+                                <b>Virus Corona</b> atau severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) adalah virus yang menyerang sistem pernapasan. Penyakit karena infeksi virus ini disebut COVID-19. 
                                 Virus Corona bisa menyebabkan gangguan ringan pada sistem pernapasan, 
                                 infeksi paru-paru yang berat, hingga kematian.
+                                <br>
+                                <b>Gejala awal</b> dan yang paling umum dari virus corona ini adalah Demam tinggi, Batuk kering, dan Kelelahan.
+                                Sedangkan Gejala serius dari penyakit ini adalah Kesulitan bernapas/sesak napas, Nyeri dada, dan hilangnya kemampuan
+                                berbicara atau bergerak
                             </p>
                             <p style="text-align:justify;" class="lead mb-3">
-                                Kasus pertama penyakit ini terjadi di kota Wuhan, Cina, pada akhir Desember 2019. Setelah itu, 
+                                <b>Kasus pertama</b> penyakit ini terjadi di kota Wuhan, Cina, pada akhir Desember 2019. Setelah itu, 
                                 COVID-19 menular antarmanusia dengan sangat cepat dan menyebar ke puluhan negara, 
                                 termasuk Indonesia, hanya dalam beberapa bulan.
-
-                                Penyebarannya yang cepat membuat beberapa negara menerapkan kebijakan untuk 
+                                <br>
+                                <b>Penyebarannya</b> yang cepat membuat beberapa negara menerapkan kebijakan untuk 
                                 memberlakukan lockdown untuk mencegah penyebaran virus Corona. 
                                 Di Indonesia, pemerintah menerapkan kebijakan Pembatasan Sosial Berskala Besar (PSBB) untuk menekan penyebaran virus ini.
                             </p>
                         </div>
                         <div class="ml-auto">
+                        <br><br><br>
                         <br><br><br>
                         <br><br><br>
                             <img src="{{asset('assets/assetfrontend/assets/img/corona6.png')}}" alt="Coronavirus" 
@@ -259,6 +264,7 @@
                             </h3>
                         </div>
                         <div class="card-body">
+                        <div style="height:600px; overflow:auto; margin:15px;">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-hover">
                                     <thead>
@@ -300,6 +306,7 @@
                                     </tbody>
                                 </table>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>

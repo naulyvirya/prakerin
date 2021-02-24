@@ -19,12 +19,6 @@
             </a>
           </li>
           <li>
-            <a href="/admin">
-              <i class="now-ui-icons objects_key-25"></i>
-              <p>Admin</p>
-            </a>
-          </li>
-          <li>
             <a href="{{ url('/admin/provinsi') }}">
               <i class="now-ui-icons location_map-big"></i>
               <p>Provinsi</p>
