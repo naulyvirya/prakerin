@@ -13,7 +13,7 @@
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li class="active ">
-            <a href="/admin">
+            <a href="{{ url('/admin') }}">
               <i style="color : black" class="now-ui-icons design_app"></i>
               <p style="color : black">Dashboard</p>
             </a>
