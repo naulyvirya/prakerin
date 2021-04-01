@@ -11,6 +11,7 @@ use App\Models\Kota;
 use App\Models\Rw;
 use App\Models\Provinsi;
 use DB;
+use Carbon\Carbon;
 
 class FrontendController extends Controller
 {
@@ -40,6 +41,8 @@ class FrontendController extends Controller
                         ->get();
         $dataglobal = file_get_contents("https://api.kawalcorona.com/");
         $global = json_decode($dataglobal, true);
-        return view('frontend.index', compact('provinsi', 'data', 'positif', 'sembuh', 'meninggal', 'global'));
+
+        $tanggal = Carbon::now()->format('D d-M-Y');
+        return view('frontend.index', compact('provinsi', 'data', 'positif', 'sembuh', 'meninggal', 'tanggal', 'global'));
     }
 }

@@ -11,8 +11,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table">
-                            <tr>
+                    <table class="table table-bordered" id="datatable" width="100%" cellspacing="0">                            <tr>
                                 <th>No</th>
                                 <th>Kode Provinsi</th>
                                 <th>Provinsi</th>
@@ -28,7 +27,6 @@
                                     <form action="{{route('provinsi.destroy', $data->id)}}" method="post">
                                         @csrf
                                         @method('Delete')
-                                        <a class="far fa-eye btn btn-info" href=" {{ route('provinsi.show', $data->id) }} "></a>
                                         <a class="far fa-edit btn btn-warning" href=" {{ route('provinsi.edit', $data->id) }} "></a>
                                         <button type="submit" class="far fa-trash-alt btn btn-danger" onclick="return confirm('Anda Yakin Ingin Hapus?')"></button>
                                     </form>

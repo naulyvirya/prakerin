@@ -1,12 +1,12 @@
-<div class="sidebar" data-color="orange">
+<div class="sidebar" data-color="dark">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+        <a href="#" class="simple-text logo-mini">
           COV
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="#" class="simple-text logo-normal">
           Kawal Korona
         </a>
       </div>
@@ -14,8 +14,8 @@
         <ul class="nav">
           <li class="active ">
             <a href="/admin">
-              <i class="now-ui-icons design_app"></i>
-              <p>Dashboard</p>
+              <i style="color : black" class="now-ui-icons design_app"></i>
+              <p style="color : black">Dashboard</p>
             </a>
           </li>
           <li>
@@ -54,12 +54,7 @@
               <p>Kasus</p>
             </a>
           </li>
-          <li>
-            <a href="../">
-              <i class="now-ui-icons shopping_shop"></i>
-              <p>Home</p>
-            </a>
-          </li>
+          
         </ul>
       </div>
     </div>

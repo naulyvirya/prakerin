@@ -18,7 +18,7 @@
       <div class="card login-card">
         <div class="row no-gutters">
           <div class="col-md-5">
-            <img src="{{asset('assets/assetlogin/assets/images/login.jpg')}}" text="Covid" alt="login" class="login-card-img">
+            <img src="{{asset('assets/assetlogin/assets/images/logo1.png')}}" text="Covid" alt="login" class="login-card-img">
           </div>
           <div class="col-md-7">
             <div class="card-body">
@@ -52,7 +52,7 @@
                                     {{ __('Login') }}
                                 </button>
 
-                                @if (Route::has('password.request'))
+                                <!-- @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
@@ -62,7 +62,7 @@
                 <nav class="login-card-footer-nav">
                   <a href="#!">Terms of use.</a>
                   <a href="#!">Privacy policy</a>
-                </nav>
+                </nav> -->
             </div>
           </div>
         </div>

@@ -81,7 +81,6 @@
                         <div class="ml-auto">
                         <br><br><br>
                         <br><br><br>
-                        <br><br><br>
                             <img src="{{asset('assets/assetfrontend/assets/img/corona6.png')}}" alt="Coronavirus" 
                             width="250" height="250">
                         </div>
@@ -213,6 +212,11 @@
                         </div>
 					</div>
 				</div> 
+                <div class="col text-center">
+                    <h6>
+                       <p>Update Terakhir : {{ $tanggal }}</p> 
+                    </h6>
+                </div>
             </div>
             <br><br>
             <div class="row row-cards" id="dataindo">

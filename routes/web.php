@@ -25,7 +25,7 @@ Route::get('/welcome', function () {
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::group(['prefix' => 'admin', 'middleware'=>['auth']], function() {
         Route::get('/', function()
