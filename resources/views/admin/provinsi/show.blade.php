@@ -10,10 +10,6 @@
                     <div class="card-body">
                             @csrf
                             <div class="form-group">
-                                <label for="">Kode Provinsi</label>
-                                <input type="text" name="kode_provinsi" value="{{$provinsi->kode_provinsi}}" class="form-control" readonly>
-                            </div>
-                            <div class="form-group">
                                 <label for="">Nama Provinsi</label>
                                 <input type="text" name="nama_provinsi" value="{{$provinsi->nama_provinsi}}" class="form-control" readonly>
                             </div>

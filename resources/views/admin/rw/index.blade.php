@@ -14,7 +14,7 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">                            <tr>
                                 <th>No</th>
                                 <th>RW</th>
-                                <th>Desa</th>
+                                <th>Kelurahan</th>
                                 <th>Aksi</th>
                             </tr>
                             @php $no=1; @endphp
@@ -22,7 +22,7 @@
                             <tr>
                                 <td>{{$no++}}</td>
                                 <td>{{$data->nama_rw}}</td>
-                                <td>{{$data->desa->nama_desa}}</td>
+                                <td>{{$data->kelurahan->nama_kelurahan}}</td>
                                 <td>
                                     <form action="{{route('rw.destroy', $data->id)}}" method="post">
                                         @csrf

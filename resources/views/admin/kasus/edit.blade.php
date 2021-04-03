@@ -18,27 +18,23 @@
                         @method('PUT')
                         <div class="row">
                             <div class="col">
-                                @livewire('livewire', ['selectedRw' => $kasus->id_rw, 'selectedDesa' => $kasus->rw->id_desa,
-                                                'selectedKecamatan' => $kasus->rw->desa->id_kecamatan,
-                                                'selectedKota' => $kasus->rw->desa->kecamatan->id_kota,
-                                                'selectedProvinsi' => $kasus->rw->desa->kecamatan->kota->id_provinsi])
+                                @livewire('livewire', ['selectedRw' => $kasus->id_rw, 'selectedKelurahan' => $kasus->rw->id_kelurahan,
+                                                'selectedKecamatan' => $kasus->rw->kelurahan->id_kecamatan,
+                                                'selectedKota' => $kasus->rw->kelurahan->kecamatan->id_kota,
+                                                'selectedProvinsi' => $kasus->rw->kelurahan->kecamatan->kota->id_provinsi])
                             </div>
                             <div class="col">
-                                <div class="form-group">                                        
-                                    <label for="">Reaktif</label>
-                                    <input type="text" name="reaktif" value="{{$kasus->reaktif}}" class="form-control" required>
-                                </div> 
                                 <div class="form-group">
                                     <label for="">Positif</label>
-                                    <input type="text" name="positif" value="{{$kasus->positif}}" class="form-control" required>
+                                    <input type="text" min="1" name="positif" value="{{$kasus->positif}}" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Sembuh</label>
-                                    <input type="text" name="sembuh" value="{{$kasus->sembuh}}" class="form-control" required>
+                                    <input type="text" min="1" max="positif" name="sembuh" value="{{$kasus->sembuh}}" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Meninggal</label>
-                                    <input type="text" name="meninggal" value="{{$kasus->meninggal}}" class="form-control" required>
+                                    <input type="text" min="1" max="positif" name="meninggal" value="{{$kasus->meninggal}}" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Tanggal</label>

@@ -15,21 +15,26 @@
                                     @livewire('livewire')
                                 </div>
                                 <div class="col">
-                                    <div class="form-group">                                        
-                                        <label for="">Reaktif</label>
-                                        <input type="text" name="reaktif" class="form-control" required>
-                                    </div> 
                                     <div class="form-group">
+                                    @error('title')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                         <label for="">Positif</label>
-                                        <input type="text" name="positif" class="form-control" required>
+                                        <input type="number" name="positif" min="1" class="form-control" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Sembuh</label>
-                                        <input type="text" name="sembuh" class="form-control" required>
+                                        <input type="number" name="sembuh" min="1" max="positif" class="form-control" required>
+                                        @if ($errors->has('sembuh'))
+                                            <span class="text-danger"> {{ $errors->first('sembuh') }} </span>
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <label for="">Meninggal</label>
-                                        <input type="text" name="meninggal" class="form-control" required>
+                                        <input type="number" name="meninggal" min="1" max="positif" class="form-control" required>
+                                        @if ($errors->has('meninggal'))
+                                            <span class="text-danger"> {{ $errors->first('meninggal') }} </span>
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <label for="">Tanggal</label>

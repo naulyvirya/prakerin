@@ -13,7 +13,6 @@
                     <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">                            <tr>
                                 <th>No</th>
-                                <th>Kode Kota</th>
                                 <th>Kota</th>
                                 <th>Provinsi</th>
                                 <th>Aksi</th>
@@ -22,7 +21,6 @@
                             @foreach($kota as $data)
                             <tr>
                                 <td>{{$no++}}</td>
-                                <td>{{$data->kode_kota}}</td>
                                 <td>{{$data->nama_kota}}</td>
                                 <td>{{$data->provinsi->nama_provinsi}}</td>
                                 <td>

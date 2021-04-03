@@ -33,17 +33,17 @@
         </div>
         <div class="form-group">
     {{-- @if (!is_null($selectedKecamatan) > 0) --}}
-            <label for="desa" >Desa</label>
-                <select wire:model="selectedDesa" class="form-control">
-                    <option value="" selected>Pilih Desa</option>
-                    @foreach($desa as $desas)
-                        <option value="{{ $desas->id }}">{{ $desas->nama_desa }}</option>
+            <label for="kelurahan" >Kelurahan</label>
+                <select wire:model="selectedKelurahan" class="form-control">
+                    <option value="" selected>Pilih Kelurahan</option>
+                    @foreach($kelurahan as $kelurahans)
+                        <option value="{{ $kelurahans->id }}">{{ $kelurahans->nama_kelurahan }}</option>
                     @endforeach
                 </select>
     {{-- @endif --}}
         </div>
         <div class="form-group">
-    {{-- @if (!is_null($selectedDesa) > 0) --}}
+    {{-- @if (!is_null($selectedKelurahan) > 0) --}}
             <label for="rw" >RW</label>
                 <select wire:model="selectedRw" class="form-control" name="id_rw">
                     <option value="" selected>Pilih RW</option>

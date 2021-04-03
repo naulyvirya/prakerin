@@ -13,7 +13,7 @@
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li class="active ">
-            <a href="{{ url('/admin') }}">
+            <a href="{{ url('/home') }}">
               <i style="color : black" class="now-ui-icons design_app"></i>
               <p style="color : black">Dashboard</p>
             </a>
@@ -37,9 +37,9 @@
             </a>
           </li>
           <li>
-            <a href="{{ url('/admin/desa') }}">
+            <a href="{{ url('/admin/kelurahan') }}">
               <i class="now-ui-icons location_map-big"></i>
-              <p>Desa</p>
+              <p>Kelurahan</p>
             </a>
           </li>
           <li>

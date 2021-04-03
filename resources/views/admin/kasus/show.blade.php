@@ -11,17 +11,13 @@
                         <div class="form-group row ">
                             <div class="col-md-6">
                                 <label for="provinsi">Provinsi</label>
-                                <input type="text" name="nama_provinsi" class="form-control" value="{{$kasus->rw->desa->kecamatan->kota->provinsi->nama_provinsi}}" readonly>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="reaktif">Jumlah Reaktif</label>
-                                <input type="text" class="form-control" name="reaktif" value="{{$kasus->reaktif}}" readonly>
+                                <input type="text" name="nama_provinsi" class="form-control" value="{{$kasus->rw->kelurahan->kecamatan->kota->provinsi->nama_provinsi}}" readonly>
                             </div>
                         </div> 
                             <div class="form-group row ">
                                 <div class="col-md-6">
                                     <label for="kota">Kota</label>
-                                    <input type="text" name="nama_kota" class="form-control" value="{{$kasus->rw->desa->kecamatan->kota->nama_kota}}" readonly>
+                                    <input type="text" name="nama_kota" class="form-control" value="{{$kasus->rw->kelurahan->kecamatan->kota->nama_kota}}" readonly>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="positif">Jumlah Positif</label>
@@ -31,7 +27,7 @@
                             <div class="form-group row ">
                                 <div class="col-md-6">
                                     <label for="kecamatan">Kecamatan</label>
-                                    <input type="text" name="nama_kota" class="form-control" value="{{$kasus->rw->desa->kecamatan->nama_kecamatan}}" readonly>
+                                    <input type="text" name="nama_kota" class="form-control" value="{{$kasus->rw->kelurahan->kecamatan->nama_kecamatan}}" readonly>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="sembuh">Jumlah Sembuh</label>
@@ -40,8 +36,8 @@
                             </div>
                             <div class="form-group row ">
                                 <div class="col-md-6">
-                                    <label for="desa" >Desa</label>
-                                    <input type="text" name="nama_kota" class="form-control" value="{{$kasus->rw->desa->nama_desa}}" readonly>
+                                    <label for="kelurahan" >Kelurahan</label>
+                                    <input type="text" name="nama_kota" class="form-control" value="{{$kasus->rw->kelurahan->nama_kelurahan}}" readonly>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="meninggal">Jumlah Meninggal</label>

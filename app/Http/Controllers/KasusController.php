@@ -15,7 +15,7 @@ class KasusController extends Controller
      */
     public function index()
     {
-        $kasus = Kasus::with('rw.desa.kecamatan.kota.provinsi')->get();
+        $kasus = Kasus::with('rw.kelurahan.kecamatan.kota.provinsi')->get();
         return view('admin.kasus.index', compact('kasus'));
     }
 
@@ -38,9 +38,29 @@ class KasusController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'id_rw' => 'required',
+            'positif' => 'required|min:1',
+            'meninggal' => 'required|min:1',
+            'sembuh' => 'required|min:1',
+            'meninggal' => 'required|min:positif|max:positif',
+            'sembuh' => 'required|min:positif|max:positif',
+        ],[
+            'id_rw.required' => 'Rw is required',
+            'positif.required' => 'Jumlah Positif is required',
+            'positif.min' => 'Jumlah Positif tidak boleh minus',
+            'meninggal.required' => 'Jumlah Meninggal required',
+            'meninggal.min' => 'Jumlah meninggal tidak boleh minus',
+            'sembuh.required' => 'Jumlah Sembuh required',
+            'sembuh.min' => 'Jumlah Sembuh tidak boleh minus',
+            'meninggal.required' => 'Jumlah Meninggal required',
+            'meninggal.min' => 'Jumlah Meninggal tidak boleh melebihi Positif.',
+            'sembuh.required' => 'Jumlah Sembuh required',
+            'sembuh.min' => 'Jumlah Sembuh tidak boleh melebihi Positif.',
+        ]);
+
         $kasus = new Kasus();
         $kasus->id_rw = $request->id_rw;
-        $kasus->reaktif = $request->reaktif;
         $kasus->positif = $request->positif;
         $kasus->meninggal = $request->meninggal;
         $kasus->sembuh = $request->sembuh;
@@ -86,7 +106,6 @@ class KasusController extends Controller
     {
         $kasus = Kasus::findOrFail($id);
         $kasus->id_rw = $request->id_rw;
-        $kasus->reaktif = $request->reaktif;
         $kasus->positif = $request->positif;
         $kasus->meninggal = $request->meninggal;
         $kasus->sembuh = $request->sembuh;

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Desa;
+use App\Models\Kelurahan;
 use App\Models\Kecamatan;
 use Illuminate\Http\Request;
 
-class DesaController extends Controller
+class KelurahanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class DesaController extends Controller
      */
     public function index()
     {
-        $desa = Desa::with('kecamatan')->get();
-        return view('admin.desa.index', compact('desa'));
+        $kelurahan = Kelurahan::with('kecamatan')->get();
+        return view('admin.kelurahan.index', compact('kelurahan'));
     }
 
     /**
@@ -27,7 +27,7 @@ class DesaController extends Controller
     public function create()
     {
         $kecamatan = Kecamatan::all();
-        return view('admin.desa.create', compact('kecamatan'));
+        return view('admin.kelurahan.create', compact('kecamatan'));
     }
 
     /**
@@ -39,74 +39,74 @@ class DesaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_desa' => 'required|unique:desas'
+            'nama_kelurahan' => 'required|unique:kelurahans'
         ]);
 
-        $desa = new Desa();
-        $desa->id_kecamatan = $request->id_kecamatan;
-        $desa->nama_desa = $request->nama_desa;
-        $desa->save();
-        return redirect()->route('desa.index')
+        $kelurahan = new Kelurahan();
+        $kelurahan->id_kecamatan = $request->id_kecamatan;
+        $kelurahan->nama_kelurahan = $request->nama_kelurahan;
+        $kelurahan->save();
+        return redirect()->route('kelurahan.index')
             ->with(['success'=>'Data Berhasil di Input!']);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Desa  $desa
+     * @param  \App\Models\kelurahan  $kelurahan
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {   
-        $desa = Desa::findOrFail($id);
-        return view('admin.desa.show', compact('desa'));
+        $kelurahan = Kelurahan::findOrFail($id);
+        return view('admin.kelurahan.show', compact('kelurahan'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Desa  $desa
+     * @param  \App\Models\kelurahan  $kelurahan
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $kecamatan = Kecamatan::all();
-        $desa = Desa::findOrFail($id);
-        return view('admin.desa.edit', compact('desa', 'kecamatan'));
+        $kelurahan = Kelurahan::findOrFail($id);
+        return view('admin.kelurahan.edit', compact('kelurahan', 'kecamatan'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Desa  $desa
+     * @param  \App\Models\kelurahan  $kelurahan
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama_desa' => 'required'
+            'nama_kelurahan' => 'required'
         ]);
 
-        $desa = Desa::findOrFail($id);
-        $desa->id_kecamatan = $request->id_kecamatan;
-        $desa->nama_desa = $request->nama_desa;
-        $desa->save();
-        return redirect()->route('desa.index')
+        $kelurahan = Kelurahan::findOrFail($id);
+        $kelurahan->id_kecamatan = $request->id_kecamatan;
+        $kelurahan->nama_kelurahan = $request->nama_kelurahan;
+        $kelurahan->save();
+        return redirect()->route('kelurahan.index')
             ->with(['info'=>'Data Berhasil di Edit!']);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Desa  $desa
+     * @param  \App\Models\kelurahan  $kelurahan
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $desa = Desa::findOrFail($id);
-        $desa->delete();
-        return redirect()->route('desa.index')
+        $kelurahan = Kelurahan::findOrFail($id);
+        $kelurahan->delete();
+        return redirect()->route('kelurahan.index')
             ->with(['error'=>'Data Berhasil di Hapus!']);
     }
 }

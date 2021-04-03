@@ -15,11 +15,11 @@
                             @error('title')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                                <label for="">Pilih Desa</label>
-                                <select name="id_desa" class="form-control">
-                                    @foreach($desa as $data)
-                                        <option value="{{$data->id}}" {{$data->id == $rw->id_desa ? 'selected' : ''}}>
-                                            {{$data->nama_desa}}
+                                <label for="">Pilih Kelurahan</label>
+                                <select name="id_kelurahan" class="form-control">
+                                    @foreach($kelurahan as $data)
+                                        <option value="{{$data->id}}" {{$data->id == $rw->id_kelurahan ? 'selected' : ''}}>
+                                            {{$data->nama_kelurahan}}
                                         </option>
                                     @endforeach
                                 </select>

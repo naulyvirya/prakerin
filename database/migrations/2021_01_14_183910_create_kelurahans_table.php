@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDesasTable extends Migration
+class CreateKelurahansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateDesasTable extends Migration
      */
     public function up()
     {
-        Schema::create('desas', function (Blueprint $table) {
+        Schema::create('kelurahans', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('id_kecamatan');
             $table->foreign('id_kecamatan')->references('id')
                 ->on('kecamatans')->onDelete('cascade');
-            $table->string('nama_desa');
+            $table->string('nama_kelurahan');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateDesasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('desas');
+        Schema::dropIfExists('kelurahans');
     }
 }

@@ -10,8 +10,8 @@
                     <div class="card-body">
                             @csrf
                             <div class="form-group">
-                                <label for="">Desa</label>
-                                <input type="text" name="id_desa" value="{{$rw->desa->nama_desa}}" class="form-control" readonly>
+                                <label for="">Kelurahan</label>
+                                <input type="text" name="id_kelurahan" value="{{$rw->kelurahan->nama_kelurahan}}" class="form-control" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="">RW</label>

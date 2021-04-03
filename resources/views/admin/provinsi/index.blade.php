@@ -6,14 +6,13 @@
             <div class="card">
                     @include('flash-message')
                 <div class="card-header">
-                    <b>Data Provinsi</b> 
-                    <a href="{{route('provinsi.create')}}" class="btn btn-primary float-right">Tambah</a>
+                    <h5><b>Data Provinsi</b></h5> 
+                    <!-- <a href="{{route('provinsi.create')}}" class="btn btn-primary float-right">Tambah</a> -->
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                     <table class="table table-bordered" id="datatable" width="100%" cellspacing="0">                            <tr>
                                 <th>No</th>
-                                <th>Kode Provinsi</th>
                                 <th>Provinsi</th>
                                 <th>Aksi</th>
                             </tr>
@@ -21,7 +20,6 @@
                             @foreach($provinsi as $data)
                             <tr>
                                 <td>{{$no++}}</td>
-                                <td>{{$data->kode_provinsi}}</td>
                                 <td>{{$data->nama_provinsi}}</td>
                                 <td>
                                     <form action="{{route('provinsi.destroy', $data->id)}}" method="post">

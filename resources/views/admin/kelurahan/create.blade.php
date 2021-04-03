@@ -5,11 +5,10 @@
             <div class="col-md-10">
                 <div class="card">
                     <div class="card-header">
-                        Edit Data Desa
+                        Tambah Data Kelurahan
                     </div>
                     <div class="card-body">
-                        <form action="{{route('desa.update', $desa->id)}}" method="post">
-                            @method('put')
+                        <form action="{{route('kelurahan.store')}}" method="post">
                             @csrf
                             <div class="form-group">
                             @error('title')
@@ -18,22 +17,20 @@
                                 <label for="">Pilih Kecamatan</label>
                                 <select name="id_kecamatan" class="form-control">
                                     @foreach($kecamatan as $data)
-                                        <option value="{{$data->id}}" {{$data->id == $desa->id_kecamatan ? 'selected' : ''}}>
-                                            {{$data->nama_kecamatan}}
-                                        </option>
+                                    <option value="{{$data->id}}">{{$data->nama_kecamatan}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="">Nama Desa</label>
-                                <input type="text" name="nama_desa" value="{{$desa->nama_desa}}" class="form-control" required>
-                                @if ($errors->has('nama_desa'))
-                                    <span class="text-danger"> {{ $errors->first('nama_desa') }} </span>
+                                <label for="">Nama Kelurahan</label>
+                                <input type="text" name="nama_kelurahan" class="form-control" required>
+                                @if ($errors->has('nama_kelurahan'))
+                                    <span class="text-danger"> {{ $errors->first('nama_kelurahan') }} </span>
                                 @endif
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn block">Simpan</button>
-                                <a href=" {{ route('desa.index') }} " class="btn btn-danger">Back</a>
+                                <a href=" {{ route('kelurahan.index') }} " class="btn btn-danger">Back</a>
                             </div>
                         </form>
                     </div>

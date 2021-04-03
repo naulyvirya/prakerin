@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rw;
-use App\Models\Desa;
+use App\Models\Kelurahan;
 use Illuminate\Http\Request;
 
 class RwController extends Controller
@@ -15,7 +15,7 @@ class RwController extends Controller
      */
     public function index()
     {
-        $rw = Rw::with('desa')->get();
+        $rw = Rw::with('kelurahan')->get();
         return view('admin.rw.index', compact('rw'));
     }
 
@@ -26,8 +26,8 @@ class RwController extends Controller
      */
     public function create()
     {
-        $desa = Desa::all();
-        return view('admin.rw.create', compact('desa'));
+        $kelurahan = Kelurahan::all();
+        return view('admin.rw.create', compact('kelurahan'));
     }
 
     /**
@@ -40,7 +40,7 @@ class RwController extends Controller
     {
 
         $rw = new Rw();
-        $rw->id_desa = $request->id_desa;
+        $rw->id_kelurahan = $request->id_kelurahan;
         $rw->nama_rw = $request->nama_rw;
         $rw->save();
         return redirect()->route('rw.index')
@@ -67,9 +67,9 @@ class RwController extends Controller
      */
     public function edit($id)
     {
-        $desa = Desa::all();
+        $kelurahan = Kelurahan::all();
         $rw = Rw::findOrFail($id);
-        return view('admin.rw.edit', compact('rw', 'desa'));
+        return view('admin.rw.edit', compact('rw', 'kelurahan'));
     }
 
     /**
@@ -83,7 +83,7 @@ class RwController extends Controller
     {
 
         $rw = Rw::findOrFail($id);
-        $rw->id_desa = $request->id_desa;
+        $rw->id_kelurahan = $request->id_kelurahan;
         $rw->nama_rw = $request->nama_rw;
         $rw->save();
         return redirect()->route('rw.index')

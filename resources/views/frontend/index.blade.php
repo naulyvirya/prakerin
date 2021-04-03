@@ -94,48 +94,6 @@
                 Data Penyebaran Covid-19 di Indonesia
             </h2>
             <div class="row">
-                <!-- <div class="col-lg-3 col-md-6">
-                    <div class="card-body bg-danger">
-                    <img src="{{asset('assets/assetfrontend/assets/img/sad.png')}}" style="display: block; margin: auto;" 
-                    width="50" height="50" alt="Positif"><br>
-                        <p class="text-white">TOTAL POSITIF</p>
-                        <h2 class="text-white number-font">{{ $positif }}</h2>
-                        <p class="text-white">Orang</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card-body bg-success">
-                    <i><img src="{{asset('assets/assetfrontend/assets/img/happy.png')}}" style="display: block; margin: auto;"
-                     width="50" height="50" alt="Positif"></i><br>
-                        <p class="text-white">TOTAL SEMBUH</p>
-                    <h2 class="text-white mb-0 number-font">{{ $sembuh }}</h2>
-                    <p class="text-white">Orang</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card-body bg-secondary">
-                    <i><img src="{{asset('assets/assetfrontend/assets/img/cry.png')}}"  style="display: block; margin: auto;"
-                    width="50" height="50" alt="Positif"></i><br>
-                        <p class="text-white">TOTAL MENINGGAL</p>
-                    <h2 class="text-white mb-0 number-font">{{ $meninggal }}</h2>
-                    <p class="text-white">Orang</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card-body bg-secondary">
-                    <i><img src="{{asset('assets/assetfrontend/assets/img/indo.png')}}" style="display: block; margin: auto;"
-                    width="50" height="50" alt="Positif"></i><br>
-                        <p class="text-white">INDONESIA</p>
-                        <h5 class="text-white">
-                            {{number_format($positif)}}
-                            &nbsp; POSITIF, &nbsp;
-                            {{number_format($sembuh)}}
-                            &nbsp; SEMBUH, &nbsp;
-                            {{number_format($meninggal)}}
-                            &nbsp; MENINGGAL
-                        </h5>       
-                    </div>
-                </div> -->
 				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
 					<div class="card bg-danger img-card box-primary-shadow" style="margin-top:20px">
 						<div class="card-body">
