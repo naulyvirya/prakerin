@@ -43,8 +43,8 @@ class KasusController extends Controller
             'positif' => 'required|min:1',
             'meninggal' => 'required|min:1',
             'sembuh' => 'required|min:1',
-            'meninggal' => 'required|min:positif|max:positif',
-            'sembuh' => 'required|min:positif|max:positif',
+            // 'meninggal' => 'required|min:positif|max:positif',
+            // 'sembuh' => 'required|min:positif|max:positif',
         ],[
             'id_rw.required' => 'Rw is required',
             'positif.required' => 'Jumlah Positif is required',

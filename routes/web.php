@@ -43,3 +43,8 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth']], function() {
 
 //Frontend
 Route::resource('/', FrontendController::class);
+// report
+use App\Http\Controllers\ReportController;
+Route::get('laporanprov', [ReportController::class, 'getReportProvinsi']);
+Route::post('laporanprov', [ReportController::class, 'ReportProvinsi']);
+Route::get('pdfkasus', [ReportController::class,'kasus'])->name('pdfkasus');

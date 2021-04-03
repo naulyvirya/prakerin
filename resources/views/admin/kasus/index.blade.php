@@ -10,6 +10,10 @@
                         Data kasus
                         <a href=" {{route('kasus.create')}} " class="btn btn-primary" style="float: right;">Tambah Data</a>
                     </h10>
+                    <br><br>
+                    <a href="{{ route('pdfkasus') }}" class="float-left btn btn-success">
+                        <i class="far fa-file-pdf"></i>Cetak PDF
+                    </a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
