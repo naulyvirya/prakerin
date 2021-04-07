@@ -25,16 +25,25 @@
                             </div>
                             <div class="col">
                                 <div class="form-group">
+                                    @error('title')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                     <label for="">Positif</label>
                                     <input type="text" min="1" name="positif" value="{{$kasus->positif}}" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Sembuh</label>
                                     <input type="text" min="1" max="positif" name="sembuh" value="{{$kasus->sembuh}}" class="form-control" required>
+                                    @if ($errors->has('sembuh'))
+                                        <span class="text-danger"> {{ $errors->first('sembuh') }} </span>
+                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="">Meninggal</label>
                                     <input type="text" min="1" max="positif" name="meninggal" value="{{$kasus->meninggal}}" class="form-control" required>
+                                    @if ($errors->has('meninggal'))
+                                        <span class="text-danger"> {{ $errors->first('meninggal') }} </span>
+                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="">Tanggal</label>

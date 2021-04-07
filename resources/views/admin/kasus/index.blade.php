@@ -12,7 +12,7 @@
                     </h10>
                     <br><br>
                     <a href="{{ route('pdfkasus') }}" class="float-left btn btn-success">
-                        <i class="far fa-file-pdf"></i>Cetak PDF
+                        <i class="far fa-file-pdf"></i> Cetak PDF
                     </a>
                 </div>
                 <div class="card-body">

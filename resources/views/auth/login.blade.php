@@ -18,14 +18,14 @@
       <div class="card login-card">
         <div class="row no-gutters">
           <div class="col-md-5">
-            <img src="{{asset('assets/assetlogin/assets/images/logo1.png')}}" text="Covid" alt="login" class="login-card-img">
+            <img src="{{asset('assets/assetlogin/assets/images/login4.jpg')}}" text="Covid" alt="login" class="login-card-img">
           </div>
           <div class="col-md-7">
             <div class="card-body">
               <div class="brand-wrapper">
-                <img src="{{asset('assets/assetlogin/assets/images/logo.svg')}}" alt="logo" class="logo" >
+                <img src="{{asset('assets/assetlogin/assets/images/logo1.png')}}" alt="logo" class="logo" ><b>ADMIN</b>
               </div>
-              <p class="login-card-description">Sign into your account</p>
+              <p class="login-card-description">Welcome</p>
               <form method="POST" action="{{ route('login') }}">
                   @csrf
                   <div class="form-group">

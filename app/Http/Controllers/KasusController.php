@@ -40,23 +40,9 @@ class KasusController extends Controller
     {
         $request->validate([
             'id_rw' => 'required',
-            'positif' => 'required|min:1',
-            'meninggal' => 'required|min:1',
-            'sembuh' => 'required|min:1',
-            // 'meninggal' => 'required|min:positif|max:positif',
-            // 'sembuh' => 'required|min:positif|max:positif',
-        ],[
-            'id_rw.required' => 'Rw is required',
-            'positif.required' => 'Jumlah Positif is required',
-            'positif.min' => 'Jumlah Positif tidak boleh minus',
-            'meninggal.required' => 'Jumlah Meninggal required',
-            'meninggal.min' => 'Jumlah meninggal tidak boleh minus',
-            'sembuh.required' => 'Jumlah Sembuh required',
-            'sembuh.min' => 'Jumlah Sembuh tidak boleh minus',
-            'meninggal.required' => 'Jumlah Meninggal required',
-            'meninggal.min' => 'Jumlah Meninggal tidak boleh melebihi Positif.',
-            'sembuh.required' => 'Jumlah Sembuh required',
-            'sembuh.min' => 'Jumlah Sembuh tidak boleh melebihi Positif.',
+            'positif' => ['required', 'numeric', 'min:0'],
+            'sembuh' => ['required','numeric','min:0','max:'.$request->positif],
+            'meninggal' => ['required','numeric','min:0','max:'.$request->positif]
         ]);
 
         $kasus = new Kasus();
@@ -104,6 +90,13 @@ class KasusController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+        'id_rw' => 'required',
+        'positif' => 'required|min:1',
+        'sembuh' => ['required','numeric','min:0','max:'.$request->positif],
+        'meninggal' => ['required','numeric','min:0','max:'.$request->positif]
+
+    ]);
         $kasus = Kasus::findOrFail($id);
         $kasus->id_rw = $request->id_rw;
         $kasus->positif = $request->positif;
