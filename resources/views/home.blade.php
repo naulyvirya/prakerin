@@ -44,18 +44,58 @@
                     </h6>
                 </div>
             </div>
+            <div class="row row-cards" id="dataindo">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-14">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                Data Coronavirus di Indonesia Berdasarkan Provinsi
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>Provinsi</th>
+                                            <th>Positif</th>
+                                            <th>Sembuh</th>
+                                            <th>Meninggal</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    @php $no=1;
+                                    @endphp
+                                    @foreach($provinsi as $data)
+                                        <tr>
+                                            <td>{{$no++}}</td>
+                                            <td>{{$data->nama_provinsi}}</td>
+                                            <td>{{number_format($data->positif)}}</td>
+                                            <td>{{number_format($data->sembuh)}}</td>
+                                            <td>{{number_format($data->meninggal)}}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
             <div class="row row-cards">
                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-14">
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                DATA CORONAVIRUS BERSKALA GLOBAL
+                                Data Coronavirus Global
                             </h3>
                         </div>
                         <div class="card-body">
                         <div style="height:600px; overflow:auto; margin:15px;">
                             <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">                            <tr>
+                                <table class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
                                             <th>No.</th>

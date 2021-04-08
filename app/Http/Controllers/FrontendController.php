@@ -42,7 +42,7 @@ class FrontendController extends Controller
         $dataglobal = file_get_contents("https://api.kawalcorona.com/");
         $global = json_decode($dataglobal, true);
 
-        $tanggal = Carbon::now()->format('D d-M-Y');
+        $tanggal = Carbon::now()->format('D, d-M-Y');
         return view('frontend.index', compact('provinsi', 'data', 'positif', 'sembuh', 'meninggal', 'tanggal', 'global'));
     }
 }

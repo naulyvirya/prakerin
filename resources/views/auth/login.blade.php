@@ -23,9 +23,9 @@
           <div class="col-md-7">
             <div class="card-body">
               <div class="brand-wrapper">
-                <img src="{{asset('assets/assetlogin/assets/images/logo1.png')}}" alt="logo" class="logo" ><b>ADMIN</b>
+                <img src="{{asset('assets/assetlogin/assets/images/logo1.png')}}" alt="logo" width="70" height="70">
               </div>
-              <p class="login-card-description">Welcome</p>
+              <p class="login-card-description"><b>Welcome Admin</b></p>
               <form method="POST" action="{{ route('login') }}">
                   @csrf
                   <div class="form-group">
